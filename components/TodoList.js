@@ -6,15 +6,15 @@ var TodoList = React.createClass({
 
     render: function() {
         var innards = this.props.sections.map(function(section) {
-            var todos = section.todos.map(function(todo) {
+            var todos = section.get('todos').map(function(todo) {
                 return (
-                    <Todo key={todo.todo_id} todo={todo} />
+                    <Todo key={todo.get('todo_id')} todo={todo} />
                 );
             });
 
             return (
-                <div key={section.section_id}>
-                    <b>{section.title}</b>
+                <div key={section.get('section_id')}>
+                    <b>{section.get('title')}</b>
                     {todos}
                 </div>
             );

@@ -3,12 +3,12 @@ var React = require('react');
 var Todo = React.createClass({
 
     render: function() {
-        var checked   = (this.props.todo.is_complete) ? true : false;
-        var textClass = (this.props.todo.is_complete) ? 'complete' : '' ;
+        var checked   = (this.props.todo.get('is_complete')) ? true : false;
+        var textClass = (this.props.todo.get('is_complete')) ? 'todo complete' : 'todo' ;
         return (
-            <div className="todo {textClass}">
+            <div className={textClass}>
                 <input type="checkbox" defaultChecked={checked} />
-                {this.props.todo.title}
+                {this.props.todo.get('title')}
             </div>
         );
     }

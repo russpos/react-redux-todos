@@ -2,19 +2,43 @@ var React = require('react');
 
 var AddTodo = React.createClass({
 
+    getInitialState: function getInitialState() {
+        return {
+            title: "",
+            list_id: this.props.currentList.get('list_id')
+        };
+    },
+
+    onAddButtonClick: function onAddButtonClick() {
+        console.log('Hi>', this.state);
+
+    },
+
+    onListSelectChange: function onListSelectChange(event) {
+        this.setState({
+            list_id: parseInt(event.target.value, 10)
+        });
+    },
+
+    onTitleChange: function onTitleChange(event) {
+        this.setState({
+            title: event.target.value
+        });
+    },
+
     render: function() {
-        var sectionOptions = this.props.sections.map(function(section) {
-            console.log('> render', section);
+        var listOptions = this.props.lists.map(function(list) {
             return (
-                <option key={section.section_id} value={section.section_id}>{section.title}</option>
+                <option key={list.get('list_id')} value={list.get('list_id')}>{list.get('list_name')}</option>
             );     
         });
         return (
             <div className="add-todo">
-                <input type="text" />
-                <select name="add-to-section">
-                    {sectionOptions}
+                <input type="text" value={this.state.title} onChange={this.onTitleChange} />
+                <select onChange={this.onListSelectChange} defaultValue={this.state.list_id} name="add-to-section">
+                    {listOptions}
                 </select>
+                <button onClick={this.onAddButtonClick}>Add</button>
             </div>
         );
     }

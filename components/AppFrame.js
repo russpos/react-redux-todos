@@ -1,31 +1,12 @@
 var React = require('react');
 
 var SideBar = require('./SideBar');
-
 var TodoList = require('./TodoList');
 var AddTodo = require('./AddTodo');
 
-var sections = [{
-    title: "Important things",
-    section_id: 1,
-    todos: [{
-        is_complete: false,
-        todo_id: 1,
-        title: "Call Jerry about dinner party"
-    }, {
-        is_complete: false,
-        todo_id: 2,
-        title: "Email Elaine and ask her for extra sponges"
-    }]
-}, {
-    title: "Less important things",
-    section_id: 2,
-    todos: [{
-        is_complete: false,
-        title: "Ask George where he bought that book",
-        todo_id: 3
-    }]
-}];
+
+var lists    = require('../Data/lists');
+var sections = require('../Data/sections');
 
 var AppFrame = React.createClass({
 
@@ -35,7 +16,7 @@ var AppFrame = React.createClass({
         <div>
             <SideBar />
             <div>
-                <AddTodo sections={sections} />
+                <AddTodo currentList={lists.get(0)} lists={lists} />
                 <TodoList sections={sections} />
             </div>
         </div>
