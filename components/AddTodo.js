@@ -10,8 +10,7 @@ var AddTodo = React.createClass({
     },
 
     onAddButtonClick: function onAddButtonClick() {
-        console.log('Hi>', this.state);
-
+        this.props.onTodoAdd(this.state);
     },
 
     onListSelectChange: function onListSelectChange(event) {

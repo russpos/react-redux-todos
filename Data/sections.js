@@ -3,7 +3,7 @@ var Immutable = require('immutable');
 module.exports = Immutable.fromJS([{
     title: "Inbox",
     section_id: 0,
-    todos: []  
+    todos: [] 
 }, {
     title: "Important things",
     section_id: 1,
