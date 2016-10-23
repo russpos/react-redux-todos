@@ -8,10 +8,11 @@ module.exports = {
         };
     },
 
-    toggleTodo: function toggleTodo(todo_id) {
+    toggleTodo: function toggleTodo(todo_id, is_complete) {
         return {
-            type: actions.TOGGLE_TODD,
-            todo_id: todo_id
+            type: actions.TOGGLE_TODO,
+            todo_id: todo_id,
+            is_complete: is_complete
         };
     }
 };

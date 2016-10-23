@@ -15,7 +15,11 @@ var mapDispatchToProps = function(dispatch) {
         onTodoAdd: function(todoData) {
             debugger;
             dispatch(createAction.addTodo(todoData.title));
-        } 
+        },
+        onTodoChangeStatus: function onTodoChangeStatus(todoId, isComplete) {
+            dispatch(createAction.toggleTodo(todoId, isComplete));
+        }
+
     };
 };
 

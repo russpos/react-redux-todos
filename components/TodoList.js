@@ -2,6 +2,8 @@ var React = require('react');
 
 var Todo = require('./Todo');
 
+var listFunctions = require('../Data/listFunctions');
+
 var TodoList = React.createClass({
 
     getSections: function getSections() {
@@ -11,10 +13,20 @@ var TodoList = React.createClass({
     },
 
     render: function() {
+        var props = this.props;
+        var totalCount = 0;
+        var completeCount = 0;
+
         var innards = this.getSections().map(function(section) {
+            totalCount += listFunctions.getCountOfTodos(section);
+            completeCount += listFunctions.getCountOfCompleteTodos(section);
+
             var todos = section.get('todos').map(function(todo) {
                 return (
-                    <Todo key={todo.get('todo_id')} todo={todo} />
+                    <Todo
+                        onTodoChangeStatus={props.onTodoChangeStatus}
+                        key={todo.get('todo_id')}
+                        todo={todo} />
                 );
             });
 
@@ -25,9 +37,10 @@ var TodoList = React.createClass({
                 </div>
             );
         });
- 
+
         return (
             <div className="todo-list">
+                <h1> {completeCount} of {totalCount}</h1>
                 {innards}
             </div>
         );

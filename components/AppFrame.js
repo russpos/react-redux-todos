@@ -27,7 +27,10 @@ var AppFrame = React.createClass({
                     currentList={lists.get(0)}
                     lists={lists}
                 />
-                <TodoList currentList={lists.get(0)} lists={lists} />
+                <TodoList
+                    onTodoChangeStatus={this.props.onTodoChangeStatus}
+                    currentList={lists.get(0)}
+                    lists={lists} />
             </div>
         </div>
         );
