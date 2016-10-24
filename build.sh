@@ -1,2 +1,2 @@
 #!/bin/sh
-watchify -t [ babelify ] main.js -o bundle.js -v
+watchify -t [ babelify ] lib/main.js -o bundle.js -v
