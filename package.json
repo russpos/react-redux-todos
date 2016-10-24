@@ -4,10 +4,14 @@
   "description": "Sample TODO app",
   "main": "index.html",
   "scripts": {
+    "build": "browserify -t [ babelify ] lib/main.js -o bundle.js -v",
+    "build-watch": "watchify -t [ babelify ] lib/main.js -o bundle.js -v",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "babel" : {
-    "presets": ["react"]
+  "babel": {
+    "presets": [
+      "react"
+    ]
   },
   "author": "",
   "license": "ISC",
