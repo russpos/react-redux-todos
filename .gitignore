@@ -2,3 +2,4 @@ bundle.js
 *.swo
 *.swp
 node_modules
+lib/jasmine_examples
